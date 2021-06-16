@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+          <h3 class="text-center my-4">Search for Weather in any part of the world!</h3>
+          <h3 class="text-center my-4">Enter your city name below</h3>
+          <form 
+            [formGroup]="weatherSearchForm" (ngSubmit)="sendToweatherApi(weatherSearchForm.value)">
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                id="weatherLocation"
+                aria-describedby="weatherLocation"
+                placeholder="Please input a Location"
+                formControlName="location"/>
+             </div>
+             <div class="text-center"> 
+              <button type="submit" class="btn btn-success btn-md">
+                Get weather</button>
+                <a [routerLink]="'dokimi'">  geiaaa </a>
+             </div>
+            </form> 
+        
+    
+    
+    </div>
+      <div class="col-md-6">
+        <h3 class="text-center my-4">Weather Details:
+          <p class="text-center">Current weather conditions:{{this.weatherData?.current.condition.text}}</p>
+          <p class="text-center">Temperature in Degrees Celsius:{{this.weatherData?.current.temp_c}}</p>   
+          <p class="text-center">Feels like in Degrees Celsius:{{this.weatherData?.current.feelslike_c}}</p>     
+
+          <p class="text-center">
+            Location Searched: {{this.weatherData?.location.name}},
+            {{this.weatherData?.location.country}}
+          </p>
+
+
+
+      </h3></div>
+    </div>
+  </div>
